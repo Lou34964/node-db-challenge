@@ -1,15 +1,14 @@
 const express = require('express');
 
-const projectRouter = require('./projects/projectsRouter');
-
 const server = express();
+
+const ProjectRouter = require('./api/projects/project-router');
+const TaskRouter = require('./api/tasks/task-router');
+const ResourceRouter = require('./api/resources/resource-router');
 
 server.use(express.json());
 
-server.use('/projects', projectRouter);
-
-server.get('/', (req,res) =>{
-  res.send('<h1> Welcome to api</h1>')
-});
-
+server.use('/api/projects', ProjectRouter);
+server.use('/api/tasks', TaskRouter);
+server.use('/api/resources', ResourceRouter);
 module.exports = server;
