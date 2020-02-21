@@ -17,6 +17,6 @@ function getById(id){
     .where('taskId', id)
 }
 
-function insert(test) {
+function insert(task) {
   return db('tasks').insert(task);
 }
